@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provide/Fav_Exam_Provider/fav_provider.dart';
+import 'package:provide/Fav_Exam_Provider/fav_screen.dart';
 import 'package:provide/provider/count_provider.dart';
 import 'package:provide/provider_example/Example_one.dart';
 import 'package:provide/provider_example/Example_one_provider.dart';
@@ -17,14 +19,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => CountProvider()),
-      ChangeNotifierProvider(create: (_) => ExampleProvider())
+      ChangeNotifierProvider(create: (_) => ExampleProvider()),
+      ChangeNotifierProvider(create: (_) => FavProvider()),
     ],
 
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
       title: 'Provider_1',
       theme: ThemeData(primarySwatch: Colors.blue,),
-      home: ExamOne(),
+      home: FavScreen(),
     ),);
 
   }
